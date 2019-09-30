@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createPost } from '../../../actions/dispatchActions';
 
 class Form extends React.Component {
 
@@ -43,16 +44,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createPost: (postCount, title, body) => dispatch({
-      type: 'CREATE_POST',
-      payload: {
-        id: postCount,
-        post: {
-          title: title,
-          body: body
-        }
-      }
-    })
+    createPost: (postCount, title, body) => {dispatch(createPost(postCount, title, body))}
   }
 };
 
