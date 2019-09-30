@@ -6,30 +6,28 @@ class Form extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    let title = event.target.title.value;
-    let body = event.target.body.value;
+    let title = event.target.title.value || 'Title not entered';
+    let body = event.target.body.value || 'A person of few words, are we?';
     this.props.createPost(this.props.postCount, title, body);
   };
 
   render(){
     return(
-      <React.Fragment>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            className='postTitle'
-            type='text'
-            name='title'
-            placeholder='title goes here'
-          />
-          <input
-            className='postBody'
-            type='text'
-            name='body'
-            placeholder='words go here'
-          />
-          <button>Submit</button>
-        </form>
-      </React.Fragment>
+      <form onSubmit={this.handleSubmit}>
+        <input
+          className='postTitle'
+          type='text'
+          name='title'
+          placeholder='title goes here'
+        />
+        <input
+          className='postBody'
+          type='text'
+          name='body'
+          placeholder='words go here'
+        />
+        <button>Submit</button>
+      </form>
     );
   }
 
