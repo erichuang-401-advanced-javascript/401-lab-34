@@ -10,21 +10,20 @@ export default (state = initState, action) => {
         postCount: action.payload.id + 1,
         posts: [ action.payload, ...state.posts ]
       };
-    /*
     case 'UPDATE_POST':
       return {
         ...state,
-        posts : state.posts.map( post => {
-          post.id === action.payload.id ? action.payload.post : post;
-        });
+        posts : state.posts.map( article => {
+          return article.id === action.payload.id ? action.payload.post : article;
+        })
       };
     case 'DELETE_POST':
       return {
         ...state,
-        posts : state.posts.filter( post => {
-          post.id !== action.payload;
-        });
-      }  */
+        posts : state.posts.filter( article => {
+          return article.id !== action.payload
+        })
+      };
     default:
       return state;
   }

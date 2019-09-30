@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 
 class PrevPosts extends React.Component {
 
-  //handleEdit
+  // handleEdit = (event) => {
+  //   event.preventDefault();
+  //   let id = parseInt(event.target.name);
+  //
+  // }
 
   handleDelete = (event) => {
     event.preventDefault();
-    // this.props.deletePost(event.target.key);
-    console.log(event.target.name);
+    let id = parseInt(event.target.name);
+    this.props.deletePost(id);
   };
 
   render(){
@@ -19,7 +23,8 @@ class PrevPosts extends React.Component {
           <section key={article.id}>
             <h4>{article.post.title}</h4>
             <p>{article.post.body}</p>
-            <button>Edit</button>
+            {/*<button name={article.id} onClick={this.handleEdit}>Edit</button>*/}
+            <button name={article.id}>Edit</button>
             <button name={article.id} onClick={this.handleDelete}>Delete</button>
           </section>
         ))}
